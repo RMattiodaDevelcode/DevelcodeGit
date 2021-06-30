@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
+
 @Service
 public class GiftService {
 
@@ -18,6 +20,10 @@ public class GiftService {
 
         GiftModel giftModel = giftDao.findRandomGift();
         BeanUtils.copyProperties(giftModel, presenter);
+
+        if(new BigDecimal(3.0).compareTo(giftModel.getGrade()) < 3.0){
+            return this.findRandomGift();
+        }
 
         return presenter;
     }
