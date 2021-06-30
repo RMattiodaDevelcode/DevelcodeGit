@@ -26,7 +26,13 @@ public class GiftService {
             presenter.setPrice(addDiscount(presenter.getPrice(), BigDecimal.valueOf(0.25)));
         }
 
+        this.fazAlgumaCoisa();
+
         return presenter;
+    }
+
+    private void fazAlgumaCoisa() {
+        System.out.println("Fez algo");
     }
 
     private BigDecimal addDiscount(BigDecimal price, BigDecimal percentMultiplier) {
