@@ -21,7 +21,7 @@ public class GiftDao {
         gifts = new ArrayList<>();
         gifts.add(new GiftModelBuilder().name("Galinha pintadinha").section(SectionType.TOYS.getName()).price(new BigDecimal("506.0")).grade(new BigDecimal("2.0")).build());
         gifts.add(new GiftModelBuilder().name("Lego star wars").section(SectionType.TOYS.getName()).price(new BigDecimal("2894.0")).grade(new BigDecimal("4.0")).build());
-        gifts.add(new GiftModelBuilder().name("Carrinnho de controle remoto a gasolina").section(SectionType.TOYS.getName()).price(new BigDecimal("1745.0")).grade(new BigDecimal("3.5")).build());
+        gifts.add(new GiftModelBuilder().name("Carrinho de controle remoto a gasolina").section(SectionType.TOYS.getName()).price(new BigDecimal("1745.0")).grade(new BigDecimal("3.5")).build());
         gifts.add(new GiftModelBuilder().name("Amortecedor para carro rebaixado").section(SectionType.CARS.getName()).price(new BigDecimal("735.0")).grade(new BigDecimal("1.0")).build());
         gifts.add(new GiftModelBuilder().name("Turbo do Vin Diesel").section(SectionType.CARS.getName()).price(new BigDecimal("8691.0")).grade(new BigDecimal("2.8")).build());
         gifts.add(new GiftModelBuilder().name("IPhone 3000 direto do futuro").section(SectionType.ELECTRONIC.getName()).price(new BigDecimal("5799.0")).grade(new BigDecimal("5.0")).build());
