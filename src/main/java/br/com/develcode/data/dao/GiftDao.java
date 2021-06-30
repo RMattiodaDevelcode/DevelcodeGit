@@ -2,6 +2,7 @@ package br.com.develcode.data.dao;
 
 import br.com.develcode.common.builder.GiftModelBuilder;
 import br.com.develcode.common.model.GiftModel;
+import br.com.develcode.common.type.SectionType;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -15,28 +16,20 @@ public class GiftDao {
 
     private List<GiftModel> gifts;
 
-    private static final String TOYS = "brinquedos";
-    private static final String CARS = "carros";
-    private static final String ELECTRONIC = "eletrônicos";
-    private static final String KITCHEN = "cozinha";
-    private static final String BATHROOM = "banheiros";
-    private static final String ACCESSORIES = "acessórios";
-
     @PostConstruct
-    public void init(){
+    public void init() {
         gifts = new ArrayList<>();
-        gifts.add(new GiftModelBuilder().name("").section(TOYS).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(TOYS).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(TOYS).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(CARS).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(CARS).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(ELECTRONIC).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(ELECTRONIC).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(KITCHEN).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(KITCHEN).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(BATHROOM).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-        gifts.add(new GiftModelBuilder().name("").section(ACCESSORIES).price(new BigDecimal("")).grade(new BigDecimal("")).build());
-
+        gifts.add(new GiftModelBuilder().name("Galinha pintadinha").section(SectionType.TOYS.getName()).price(new BigDecimal("506.0")).grade(new BigDecimal("2.0")).build());
+        gifts.add(new GiftModelBuilder().name("Lego star wars").section(SectionType.TOYS.getName()).price(new BigDecimal("2894.0")).grade(new BigDecimal("4.0")).build());
+        gifts.add(new GiftModelBuilder().name("Carrinnho de controle remoto a gasolina").section(SectionType.TOYS.getName()).price(new BigDecimal("1745.0")).grade(new BigDecimal("3.5")).build());
+        gifts.add(new GiftModelBuilder().name("Amortecedor para carro rebaixado").section(SectionType.CARS.getName()).price(new BigDecimal("735.0")).grade(new BigDecimal("1.0")).build());
+        gifts.add(new GiftModelBuilder().name("Turbo do Vin Diesel").section(SectionType.CARS.getName()).price(new BigDecimal("8691.0")).grade(new BigDecimal("2.8")).build());
+        gifts.add(new GiftModelBuilder().name("IPhone 3000 direto do futuro").section(SectionType.ELECTRONIC.getName()).price(new BigDecimal("5799.0")).grade(new BigDecimal("5.0")).build());
+        gifts.add(new GiftModelBuilder().name("Óculos de realidade virtual").section(SectionType.ELECTRONIC.getName()).price(new BigDecimal("7536.0")).grade(new BigDecimal("4.9")).build());
+        gifts.add(new GiftModelBuilder().name("Geladeira cuspidora de gelo").section(SectionType.KITCHEN.getName()).price(new BigDecimal("6358.0")).grade(new BigDecimal("3.7")).build());
+        gifts.add(new GiftModelBuilder().name("Fogão com chamas do inferno").section(SectionType.KITCHEN.getName()).price(new BigDecimal("6475.0")).grade(new BigDecimal("4.3")).build());
+        gifts.add(new GiftModelBuilder().name("Privada do Olimpo").section(SectionType.BATHROOM.getName()).price(new BigDecimal("5464.0")).grade(new BigDecimal("1.6")).build());
+        gifts.add(new GiftModelBuilder().name("Smart watch maneiro").section(SectionType.ACCESSORIES.getName()).price(new BigDecimal("7653.0")).grade(new BigDecimal("4.1")).build());
     }
 
     public GiftModel findRandomGift() {
@@ -44,7 +37,8 @@ public class GiftDao {
         int size = gifts.size();
 
         Random random = new Random();
+        int index = random.nextInt(size);
 
-        return null;
+        return gifts.get(index);
     }
 }

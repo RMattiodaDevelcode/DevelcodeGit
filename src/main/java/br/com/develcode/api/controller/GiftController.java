@@ -22,6 +22,7 @@ public class GiftController {
 
     @GetMapping(value = "my-gift")
     public ResponseEntity<GiftPresenter> searchGift(){
+        LOG.info("Buscando sugestão de presente");
         return ResponseEntity.status(HttpStatus.OK).body(giftService.findRandomGift());
     }
 }
