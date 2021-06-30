@@ -22,12 +22,12 @@ public class GiftService {
         GiftModel giftModel = giftDao.findRandomGift();
         BeanUtils.copyProperties(giftModel, presenter);
 
-        if (SectionType.TOYS.getName().equalsIgnoreCase(presenter.getSection())) {
-            presenter.setPrice(addDiscount(presenter.getPrice(), BigDecimal.valueOf(0.25)));
-        }
-
         if(new BigDecimal(3.0).compareTo(giftModel.getGrade()) < 3.0){
             return this.findRandomGift();
+        }
+
+        if (SectionType.TOYS.getName().equalsIgnoreCase(presenter.getSection())) {
+            presenter.setPrice(addDiscount(presenter.getPrice(), BigDecimal.valueOf(0.25)));
         }
 
         return presenter;
